@@ -1,11 +1,7 @@
 
-import {
-  Cloud,
-  Mail,
-  ShieldCheck,
-} from "lucide-react";
-
+import {Cloud, Mail, ShieldCheck,} from "lucide-react";
 import { FeatureCard } from "../components/ui/FeatureCard";
+import { AuthPanel } from "../features/auth/components/AuthPanel";
 
 export function HomePage() {
   return (
@@ -22,10 +18,9 @@ export function HomePage() {
           </h1>
 
           <p className="hero-description">
-            NexoTasks te permitirá organizar tus
-            tareas, gestionar tus pendientes y
-            mantener el control de tus actividades
-            desde cualquier dispositivo.
+            NexoTasks te permitirá organizar tus tareas, gestionar tus
+            pendientes y mantener el control de tus actividades desde
+            cualquier dispositivo.
           </p>
 
           <div className="development-status">
@@ -33,6 +28,8 @@ export function HomePage() {
             Plataforma en desarrollo
           </div>
         </section>
+
+        <AuthPanel />
 
         <section
           className="features-section"
@@ -44,8 +41,7 @@ export function HomePage() {
             </h2>
 
             <p>
-              Estamos construyendo estas
-              funcionalidades para NexoTasks.
+              Estamos construyendo estas funcionalidades para NexoTasks.
             </p>
           </div>
 
