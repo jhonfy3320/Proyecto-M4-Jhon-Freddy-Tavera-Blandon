@@ -1,7 +1,7 @@
 
 import {Cloud, Mail, ShieldCheck,} from "lucide-react";
 import { FeatureCard } from "../components/ui/FeatureCard";
-import { AuthPanel } from "../features/auth/components/AuthPanel";
+//import { AuthPanel } from "../features/auth/components/AuthPanel";
 
 export function HomePage() {
   return (
@@ -28,9 +28,6 @@ export function HomePage() {
             Plataforma en desarrollo
           </div>
         </section>
-
-        <AuthPanel />
-
         <section
           className="features-section"
           aria-labelledby="features-title"
