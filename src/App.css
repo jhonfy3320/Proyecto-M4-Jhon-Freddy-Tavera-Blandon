@@ -664,3 +664,236 @@
     padding: 22px;
   }
 }
+
+/* =====================================
+   HITO 6 - TASK MANAGEMENT
+===================================== */
+
+.tasks-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 36px;
+  align-items: start;
+}
+
+.task-panel {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.task-panel h2 {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+  color: #172033;
+}
+
+.task-panel-description {
+  margin-bottom: 24px;
+  color: #64748b;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* Formulario */
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-form label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.task-form input,
+.task-form textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #172033;
+}
+
+.task-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.task-form input:focus-visible,
+.task-form textarea:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.task-form-actions,
+.task-item-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.task-form-actions .auth-button {
+  flex: 1;
+  min-width: 140px;
+}
+
+/* Listado */
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.task-card {
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.task-card.is-complete {
+  background: #f8fafc;
+}
+
+.task-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.task-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #475569;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.task-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+.task-card time {
+  color: #64748b;
+  font-size: 0.78rem;
+}
+
+.task-title {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.is-complete .task-title {
+  color: #64748b;
+  text-decoration: line-through;
+}
+
+.task-description {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.task-item-actions {
+  margin-top: 18px;
+}
+
+/* Botones secundarios */
+
+.task-button-secondary,
+.task-button-danger {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.task-button-secondary {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+}
+
+.task-button-danger {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.task-button-secondary:disabled,
+.task-button-danger:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.task-button-secondary:focus-visible,
+.task-button-danger:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+}
+
+/* Estados */
+
+.tasks-empty {
+  padding: 32px 16px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 14px;
+  text-align: center;
+  color: #64748b;
+}
+
+.tasks-empty h3 {
+  color: #334155;
+}
+
+.delete-confirmation {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #fff7ed;
+}
+
+.delete-confirmation p {
+  margin-top: 0;
+  color: #9a3412;
+  line-height: 1.6;
+}
+
+.tasks-footer {
+  margin-top: 32px;
+}
+
+/* Escritorio */
+
+@media (min-width: 900px) {
+  .tasks-layout {
+    grid-template-columns:
+      minmax(280px, 0.85fr)
+      minmax(0, 1.15fr);
+  }
+
+  .task-panel {
+    padding: 28px;
+  }
+}
