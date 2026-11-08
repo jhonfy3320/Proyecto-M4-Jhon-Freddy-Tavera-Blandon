@@ -538,3 +538,129 @@
     transform: none;
   }
 }
+
+/* =====================================
+   HITO 4 - ROUTER Y NAVEGACION
+===================================== */
+
+.brand-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.header-navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.nav-link.active {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.nav-primary,
+.nav-primary:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.nav-status {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.header-navigation a:focus-visible,
+.brand-link:focus-visible,
+.auth-switch a:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+}
+
+.auth-switch a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+.auth-panel h1 {
+  margin: 0 0 10px;
+  font-size: 1.6rem;
+  color: #172033;
+}
+
+.tasks-welcome {
+  max-width: 680px;
+}
+
+.tasks-welcome h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 18px;
+}
+
+.tasks-welcome > p {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.tasks-welcome .auth-identity {
+  color: #1e40af;
+}
+
+.logout-button {
+  max-width: 220px;
+}
+
+@media (max-width: 767px) {
+  .header-actions {
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .header-navigation {
+    width: 100%;
+    gap: 6px;
+  }
+
+  .nav-link {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .auth-panel {
+    padding: 22px;
+  }
+}
