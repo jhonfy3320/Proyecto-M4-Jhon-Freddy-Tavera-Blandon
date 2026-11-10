@@ -45,3 +45,14 @@ npm-debug.log*
 # Operating system
 .DS_Store
 Thumbs.db
+
+# Configuración local
+.env.local
+.env.*.local
+
+# Vercel CLI
+.vercel/
+
+# Credenciales administrativas descargadas
+*service-account*.json
+*serviceAccountKey*.json

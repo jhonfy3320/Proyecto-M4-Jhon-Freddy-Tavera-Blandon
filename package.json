@@ -11,7 +11,9 @@
     "test:rules": "firebase emulators:exec --project demo-nexotasks --only firestore \"vitest run tests/firestore.rules.test.ts\""
   },
   "dependencies": {
+    "@aws-sdk/client-sesv2": "^3.1165.0",
     "firebase": "^13.1.0",
+    "firebase-admin": "^14.5.0",
     "lucide-react": "^1.66.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
@@ -31,6 +33,7 @@
     "jsdom": "^30.1.3",
     "oxlint": "^1.89.0",
     "typescript": "~7.0.2",
+    "vercel": "^65.12.1",
     "vite": "^8.3.5",
     "vitest": "^5.0.5"
   }
