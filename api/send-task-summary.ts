@@ -39,14 +39,13 @@ export default {
       );
     }
 
-    // Este endpoint no necesita recibir tareas ni destinatarios.
-    const contentLength = Number(
-      request.headers.get("content-length") ?? "0"
-    );
-
-    if (contentLength > 0) {
+    // El endpoint no acepta contenido en el cuerpo HTTP.
+    // No dependemos del encabezado Content-Length.
+    if (request.body !== null) {
       return jsonResponse(
-        { error: "Esta operación no acepta datos adicionales." },
+        {
+          error: "Esta operación no acepta datos adicionales.",
+        },
         400
       );
     }
