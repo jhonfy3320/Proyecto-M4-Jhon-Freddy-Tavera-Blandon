@@ -6,5 +6,7 @@ import { afterEach } from "vitest";
 
 // Limpiar el DOM después de cada prueba.
 afterEach(() => {
-  cleanup();
+  if (typeof document !== "undefined") {
+    cleanup();
+  }
 });
