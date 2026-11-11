@@ -56,3 +56,5 @@ Thumbs.db
 # Credenciales administrativas descargadas
 *service-account*.json
 *serviceAccountKey*.json
+.vercel
+.env*

@@ -6,6 +6,7 @@ import { getAuthErrorMessage } from "../features/auth/utils/authErrors";
 import { TaskForm } from "../features/tasks/components/TaskForm";
 import { TaskList } from "../features/tasks/components/TaskList";
 import { useTasks } from "../features/tasks/hooks/useTasks";
+import { TaskSummaryButton } from "../features/email/components/TaskSummaryButton";
 
 export function TasksPage() {
   const { user } = useAuth();
@@ -123,7 +124,21 @@ return (
           )}
         </section>
       </div>
+      <section
+        className="task-panel email-panel"
+        aria-labelledby="email-summary-title"
+      >
+        <h2 id="email-summary-title">
+          Resumen de tareas por correo
+        </h2>
 
+        <p className="task-panel-description">
+          Recibe un resumen actualizado de tus tareas
+          completadas y pendientes.
+        </p>
+
+        <TaskSummaryButton />
+      </section>
       <div className="tasks-footer">
         <button
           type="button"

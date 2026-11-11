@@ -897,3 +897,71 @@
     padding: 28px;
   }
 }
+
+
+/* =====================================
+   HITO 7 - RESUMEN POR EMAIL
+===================================== */
+
+.email-panel {
+  max-width: 720px;
+  margin-top: 28px;
+}
+
+.email-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.email-recipient {
+  margin: 0;
+  color: #475569;
+  overflow-wrap: anywhere;
+}
+
+.email-verification {
+  padding: 18px;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  background: #eff6ff;
+}
+
+.email-verification p {
+  margin-top: 0;
+  color: #1e40af;
+  line-height: 1.6;
+}
+
+.email-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.email-send-button {
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 0;
+}
+
+.email-success {
+  padding: 14px;
+  border-radius: 10px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+  .email-actions {
+    flex-direction: column;
+  }
+
+  .email-actions button,
+  .email-send-button {
+    width: 100%;
+  }
+}
+
