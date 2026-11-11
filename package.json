@@ -9,7 +9,9 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "test:rules": "firebase emulators:exec --project demo-nexotasks --only firestore \"vitest run tests/firestore.rules.test.ts\"",
-    "typecheck:server": "tsc -p tsconfig.server.json"
+    "typecheck:server": "tsc -p tsconfig.server.json",
+    "test:ui": "vitest run src",
+    "test:unit": "vitest run src tests/taskValidation.test.ts tests/taskSummary.test.ts"
   },
   "dependencies": {
     "@aws-sdk/client-sesv2": "^3.1165.0",
