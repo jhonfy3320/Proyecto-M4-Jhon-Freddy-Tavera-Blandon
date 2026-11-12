@@ -25,6 +25,9 @@
     "react-router-dom": "^7.18.5",
     "zod": "^4.6.7"
   },
+  "overrides": {
+    "jwks-rsa": "^3.2.2"
+  },
   "devDependencies": {
     "@firebase/rules-unit-testing": "^6.0.0",
     "@testing-library/jest-dom": "^7.0.1",

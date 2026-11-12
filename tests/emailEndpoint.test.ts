@@ -246,23 +246,44 @@ describe("API - Enviar resumen por email", () => {
     expect(response.status).toBe(502);
   });
 
-it("rechaza datos adicionales aunque no exista Content-Length", async () => {
-  const request = new Request(
-    "http://localhost/api/send-task-summary",
-    {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer token-valido",
+  it("rechaza datos adicionales aunque no exista Content-Length", async () => {
+    const request = new Request(
+      "http://localhost/api/send-task-summary",
+      {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer token-valido",
+        },
+        body: JSON.stringify({
+          recipient: "tercero@ejemplo.com",
+        }),
+      }
+    );
+
+    const response = await handler.fetch(request);
+
+    expect(response.status).toBe(400);
+    expect(mocks.sesSend).not.toHaveBeenCalled();
+  });
+
+  it("permite un ReadableStream vacío como el que genera el adaptador HTTP en POST sin cuerpo", async () => {
+    const emptyStream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.close();
       },
-      body: JSON.stringify({
-        recipient: "tercero@ejemplo.com",
-      }),
-    }
-  );
+    });
 
-  const response = await handler.fetch(request);
+    const unauthRequest = new Request(
+      "http://localhost/api/send-task-summary",
+      {
+        method: "POST",
+        body: emptyStream,
+        duplex: "half",
+      } as RequestInit
+    );
 
-  expect(response.status).toBe(400);
-  expect(mocks.sesSend).not.toHaveBeenCalled();
-});
+    const unauthResponse = await handler.fetch(unauthRequest);
+
+    expect(unauthResponse.status).toBe(401);
+  });
 });

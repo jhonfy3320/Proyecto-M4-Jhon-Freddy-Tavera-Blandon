@@ -4,12 +4,12 @@ import {
   SendEmailCommand,
 } from "@aws-sdk/client-sesv2";
 
-import { getAdminServices } from "../server/firebaseAdmin";
+import { getAdminServices } from "../server/firebaseAdmin.js";
 import {
   consumeEmailQuota,
   RateLimitError,
-} from "../server/emailRateLimit";
-import { buildTaskSummary } from "../server/taskSummary";
+} from "../server/emailRateLimit.js";
+import { buildTaskSummary } from "../server/taskSummary.js";
 
 function jsonResponse(
   body: Record<string, unknown>,
@@ -42,12 +42,22 @@ export default {
     // El endpoint no acepta contenido en el cuerpo HTTP.
     // No dependemos del encabezado Content-Length.
     if (request.body !== null) {
-      return jsonResponse(
-        {
-          error: "Esta operación no acepta datos adicionales.",
-        },
-        400
-      );
+      const reader = request.body.getReader();
+
+      try {
+        const { value } = await reader.read();
+
+        if (value && value.byteLength > 0) {
+          return jsonResponse(
+            {
+              error: "Esta operación no acepta datos adicionales.",
+            },
+            400
+          );
+        }
+      } finally {
+        await reader.cancel().catch(() => undefined);
+      }
     }
 
     const authorization =
